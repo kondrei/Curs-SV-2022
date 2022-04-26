@@ -1,0 +1,23 @@
+{
+  "name": "curs-sv-2022",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kondrei/Curs-SV-2022.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kondrei/Curs-SV-2022/issues"
+  },
+  "homepage": "https://github.com/kondrei/Curs-SV-2022#readme",
+  "dependencies": {
+    "express": "^4.18.0"
+  }
+}
