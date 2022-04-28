@@ -11,9 +11,13 @@ body {
     display: flex;
     flex-direction: row-reverse;
     gap: 2rem;
-    animation: fadeIn 1.5s;
+    animation: fadeIn 2s;
 }
 
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
 
 .message {
     padding: 2rem;
@@ -31,7 +35,7 @@ body {
 
 .image {
     width: 100%;
-    /* height: 90vh; */
+    height: 90vh;
     object-fit: cover;
     flex-grow: 3;
 }
