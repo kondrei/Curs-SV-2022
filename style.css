@@ -14,6 +14,7 @@ body {
     animation: fadeIn 1.5s;
 }
 
+
 .message {
     padding: 2rem;
     flex-grow: 3;
@@ -69,7 +70,6 @@ body {
 
 div.galerie {
     display: flex;
-    flex-flow: row nowrap;
     align-items: center;
     gap: 1rem;
 }
@@ -94,11 +94,18 @@ div.desc {
 footer {
     background-color: black;
     color: #fff;
-    padding: 5rem;
+    padding: 5rem 0;
     text-align: center;
     display: block;
 }
 
 footer a {
     color: #fff;
+}
+
+/*mobile*/
+@media only screen and (max-width: 600px) {
+  .container, .galerie {
+    flex-direction: column;
+  }
 }
