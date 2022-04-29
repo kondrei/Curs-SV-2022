@@ -29,27 +29,33 @@
     <div class="titluGalerie">
         <h1>Galerie de imagini</h1>
     </div>
-    <div class="galerie">
-        <a target="_blank" href="branduse.jpg">
-            <img src="branduse.jpg" alt="Branduse" width="600">
-            <div class="desc">Brândușe și vârful Oslea</div>
-        </a>
-
-        <a target="_blank" href="retezat.jpg">
-            <img src="retezat.jpg" alt="Branduse" width="600">
-            <div class="desc">Munții Retezat</div>
-        </a>
-
-        <a target="_blank" href="iorgovan.jpg">
-            <img src="iorgovan.jpg" alt="Branduse" width="600">
-            <div class="desc">Piatra Iorgovanului</div>
-        </a>
+    <div id="galerie">
+        <figure>
+            <img src="branduse.jpg" alt="Brândușe și vârful Oslea">
+            <figcaption>Brândușe și vârful Oslea</figcaption>
+        </figure>
+        <figure>
+            <img src="retezat.jpg" alt="Munții Retezat">
+            <figcaption>Munții Retezat</figcaption>
+        </figure>
+        <figure>
+            <img src="iorgovan.jpg" alt="Piatra Iorgovanului">
+            <figcaption>Piatra Iorgovanului</figcaption>
+        </figure>
+    </div>
     </div>
     <footer>
         <p>Website de mers cu el la moară la SV</p>
         <img src="git.png" alt="" height="16">
         <a href="https://github.com/kondrei/La-moara-la-SV-2022" target="_blank">kondrei</a>
     </footer>
+    <div id="background">
+        <div class="popup">
+            <img id="currentImage" src="" alt="">
+            <p id="caption"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
