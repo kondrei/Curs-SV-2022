@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const Elements = () => {
     const randomColor = () =>
-        "#" + (Math.random().toString(16) + "000000").substring(2, 8);
+        "#" + (Math.random().toString(16)).substring(2, 8);
     const [elements, setElements] = useState([]);
     const [color, setColor] = useState(randomColor());
 
