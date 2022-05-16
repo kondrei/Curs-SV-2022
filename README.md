@@ -1,10 +1,14 @@
 # Curs-SV-2022
-
-# Intall & run
-
+# Install & run
+`cd app`
 `npm install`
-`npm run dev`
+`npm start`
+## Tema 3
 
+## Live: [https://la-moara-la-sv-2022.vercel.app/](https://la-moara-la-sv-2022.vercel.app/)
+## Source code: [https://github.com/kondrei/La-moara-la-SV-2022/tree/main/app](https://github.com/kondrei/La-moara-la-SV-2022/tree/main/app)
+
+&nbsp;&nbsp;
 ## Tema 2
 
 ## Live: [https://kondrei.github.io/La-moara-la-SV-2022/Tema2/probleme.html](https://kondrei.github.io/La-moara-la-SV-2022/Tema2/probleme.html)
