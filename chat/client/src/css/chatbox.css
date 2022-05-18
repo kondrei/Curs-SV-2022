@@ -1,0 +1,25 @@
+.messageList {
+    max-height: 50vh;
+    background-color: #dff0d0;
+    overflow: auto;
+    border-radius: 10px;
+    padding: 10px 0px;
+  }
+  
+  .messageList ul {
+    padding: 0px;
+    list-style: none;
+    text-align: left;
+  }
+  
+  .messageList li {
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px;
+    background: #c7eba8;
+  }
+  .messageList li:nth-child(odd) {
+    margin: 20px;
+    background: #fff;
+  }
+  
