@@ -6,15 +6,12 @@ const MessageForm = ({ soket }) => {
 
     const handleMessage = (e) => {
         updateMessage(e.target.value)
-        console.log(e.target.value);
     };
 
     const sendMessage = () => {
-        console.log('saa')
-        soket.emit("hello", message, (response) => {
-            console.log(response); // "got it"
-        });
+        soket.emit("message", message);
     };
+
     return (
         <div className="messageForm">
             <input type="text" placeholder="Enter name" />

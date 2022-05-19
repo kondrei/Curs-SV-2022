@@ -10,11 +10,15 @@ const Chat = () => {
     useEffect(() => {
         const soket = io();
 
-        soket.on('connected', () => {
+        soket.on('connect', () => {
             setConnectedSoket(soket);
-            console.log('conected');
+            console.log('conected!!!');
+            console.log(soket);
+
+            soket.on("sendAll", (messages) => {
+                console.log('primit', messages);
+            })
         });
-        console.log(soket);
 
     }, []);
 

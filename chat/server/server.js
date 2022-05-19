@@ -13,10 +13,20 @@ server.listen(port, () => {
     console.log(`Server started on port ${port} http://localhost:${port}`);
 });
 
+let allMessages = [];
+
 io.on('connection', (socket) => {
-    console.log(`user connected: ${socket.handshake.time}`);
-    socket.on("hello", (arg, callback) => {
-        console.log(arg); // "world"
-        callback("got it");
+
+    const sendMessageToUsers = (messages) => {
+        socket.emit("sendAll", messages);
+    };
+
+    let localTime = new Date(socket.handshake.time)
+    console.log(`user connected: ${localTime.getHours()}:${localTime.getMinutes()} ${localTime.getSeconds()}`);
+
+    socket.on("message", message => {
+        allMessages.push(message);
+        console.log(allMessages);
+        sendMessageToUsers(allMessages);
     });
 })
