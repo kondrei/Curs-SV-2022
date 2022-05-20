@@ -1,128 +1,34 @@
+import { useEffect } from "react";
+import React from "react";
 import "../css/chatbox.css";
 
-const ChatBox = () => {
+const ChatBox = ({ chats }) => {
+    useEffect(() => {
+        document.getElementById("scroll").scrollIntoView(false);
+    }, [chats]);
+
+
+
+    const boldName = (message) => {
+        let name = message.indexOf(':');
+        return (
+            <>
+                <strong>{message.substring(0, name)}</strong>{message.substring(name, message.length)}
+            </>
+        )
+    }
+
     return (
         <div className="chatBox">
             <div className="messageList">
-                <ul>
-                    <li>
-                        Est autem a te semper dictum nec gaudere quemquam nisi propter
-                        corpus nec dolere.
-                    </li>
-                    <li>
-                        Stulti autem malorum memoria torquentur, sapientes bona praeterita
-                        grata recordatione renovata delectant.
-                    </li>
-                    <li>
-                        Tum Piso: Atqui, Cicero, inquit, ista studia, si ad imitandos summos
-                        viros spectant, ingeniosorum sunt;
-                    </li>
-                    <li>Ita relinquet duas, de quibus etiam atque etiam consideret.</li>
-                    <li>
-                        Est autem a te semper dictum nec gaudere quemquam nisi propter
-                        corpus nec dolere.
-                    </li>
-                    <li>
-                        Stulti autem malorum memoria torquentur, sapientes bona praeterita
-                        grata recordatione renovata delectant.
-                    </li>
-                    <li>
-                        Tum Piso: Atqui, Cicero, inquit, ista studia, si ad imitandos summos
-                        viros spectant, ingeniosorum sunt;
-                    </li>
-                    <li>Ita relinquet duas, de quibus etiam atque etiam consideret.</li>
-                    <li>
-                        Est autem a te semper dictum nec gaudere quemquam nisi propter
-                        corpus nec dolere.
-                    </li>
-                    <li>
-                        Stulti autem malorum memoria torquentur, sapientes bona praeterita
-                        grata recordatione renovata delectant.
-                    </li>
-                    <li>
-                        Tum Piso: Atqui, Cicero, inquit, ista studia, si ad imitandos summos
-                        viros spectant, ingeniosorum sunt;
-                    </li>
-                    <li>Ita relinquet duas, de quibus etiam atque etiam consideret.</li>
-                    <li>
-                        Est autem a te semper dictum nec gaudere quemquam nisi propter
-                        corpus nec dolere.
-                    </li>
-                    <li>
-                        Stulti autem malorum memoria torquentur, sapientes bona praeterita
-                        grata recordatione renovata delectant.
-                    </li>
-                    <li>
-                        Tum Piso: Atqui, Cicero, inquit, ista studia, si ad imitandos summos
-                        viros spectant, ingeniosorum sunt;
-                    </li>
-                    <li>Ita relinquet duas, de quibus etiam atque etiam consideret.</li>
-                    <li>
-                        Est autem a te semper dictum nec gaudere quemquam nisi propter
-                        corpus nec dolere.
-                    </li>
-                    <li>
-                        Stulti autem malorum memoria torquentur, sapientes bona praeterita
-                        grata recordatione renovata delectant.
-                    </li>
-                    <li>
-                        Tum Piso: Atqui, Cicero, inquit, ista studia, si ad imitandos summos
-                        viros spectant, ingeniosorum sunt;
-                    </li>
-                    <li>Ita relinquet duas, de quibus etiam atque etiam consideret.</li>
-                    <li>
-                        Est autem a te semper dictum nec gaudere quemquam nisi propter
-                        corpus nec dolere.
-                    </li>
-                    <li>
-                        Stulti autem malorum memoria torquentur, sapientes bona praeterita
-                        grata recordatione renovata delectant.
-                    </li>
-                    <li>
-                        Tum Piso: Atqui, Cicero, inquit, ista studia, si ad imitandos summos
-                        viros spectant, ingeniosorum sunt;
-                    </li>
-                    <li>Ita relinquet duas, de quibus etiam atque etiam consideret.</li>
-                    <li>
-                        Est autem a te semper dictum nec gaudere quemquam nisi propter
-                        corpus nec dolere.
-                    </li>
-                    <li>
-                        Stulti autem malorum memoria torquentur, sapientes bona praeterita
-                        grata recordatione renovata delectant.
-                    </li>
-                    <li>
-                        Tum Piso: Atqui, Cicero, inquit, ista studia, si ad imitandos summos
-                        viros spectant, ingeniosorum sunt;
-                    </li>
-                    <li>Ita relinquet duas, de quibus etiam atque etiam consideret.</li>
-                    <li>
-                        Est autem a te semper dictum nec gaudere quemquam nisi propter
-                        corpus nec dolere.
-                    </li>
-                    <li>
-                        Stulti autem malorum memoria torquentur, sapientes bona praeterita
-                        grata recordatione renovata delectant.
-                    </li>
-                    <li>
-                        Tum Piso: Atqui, Cicero, inquit, ista studia, si ad imitandos summos
-                        viros spectant, ingeniosorum sunt;
-                    </li>
-                    <li>Ita relinquet duas, de quibus etiam atque etiam consideret.</li>
-                    <li>
-                        Est autem a te semper dictum nec gaudere quemquam nisi propter
-                        corpus nec dolere.
-                    </li>
-                    <li>
-                        Stulti autem malorum memoria torquentur, sapientes bona praeterita
-                        grata recordatione renovata delectant.
-                    </li>
-                    <li>
-                        Tum Piso: Atqui, Cicero, inquit, ista studia, si ad imitandos summos
-                        viros spectant, ingeniosorum sunt;
-                    </li>
-                    <li>final</li>
-                </ul>
+                <div id="scroll">
+                    <ul>
+                        {chats && chats.map((element, index) => (
+                            <li key={index}>{boldName(element)}</li>
+                        ))
+                        }
+                    </ul>
+                </div>
             </div>
         </div>
     );

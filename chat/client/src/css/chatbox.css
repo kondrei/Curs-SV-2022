@@ -1,4 +1,5 @@
 .messageList {
+  min-height: 50vh;
     max-height: 50vh;
     background-color: #dff0d0;
     overflow: auto;

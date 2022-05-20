@@ -6,27 +6,24 @@ import MessageForm from "./components/MessageForm";
 import "./css/chat.css";
 const Chat = () => {
     const [connectedSoket, setConnectedSoket] = useState();
+    const [messages, setMessages] = useState();
 
     useEffect(() => {
         const soket = io();
 
         soket.on('connect', () => {
             setConnectedSoket(soket);
-            console.log('conected!!!');
-            console.log(soket);
-
             soket.on("sendAll", (messages) => {
-                console.log('primit', messages);
+                setMessages(messages);
             })
         });
 
     }, []);
 
-
     return (
         <div className="mainChat" >
-            <h1>Chat</h1>
-            <ChatBox />
+            <h1>Let's chat!</h1>
+            {messages && <ChatBox chats={messages} />}
             <MessageForm soket={connectedSoket} />
         </div >
     );

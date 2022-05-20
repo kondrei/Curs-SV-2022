@@ -18,11 +18,12 @@ let allMessages = [];
 io.on('connection', (socket) => {
 
     const sendMessageToUsers = (messages) => {
+        let localTime = new Date(socket.handshake.time)
+        console.log(`user connected: ${localTime.getHours()}:${localTime.getMinutes()} ${localTime.getSeconds()}`);
         socket.emit("sendAll", messages);
+        socket.broadcast.emit("sendAll", messages);
     };
 
-    let localTime = new Date(socket.handshake.time)
-    console.log(`user connected: ${localTime.getHours()}:${localTime.getMinutes()} ${localTime.getSeconds()}`);
 
     socket.on("message", message => {
         allMessages.push(message);
