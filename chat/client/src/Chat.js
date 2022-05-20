@@ -2,6 +2,7 @@ import { io } from "socket.io-client";
 import { useEffect, useState } from "react";
 import ChatBox from "./components/ChatBox";
 import MessageForm from "./components/MessageForm";
+import Notification from "./components/Notification";
 
 import "./css/chat.css";
 const Chat = () => {
@@ -19,12 +20,12 @@ const Chat = () => {
         });
 
     }, []);
-
     return (
         <div className="mainChat" >
             <h1>Let's chat!</h1>
             {messages && <ChatBox chats={messages} />}
             <MessageForm soket={connectedSoket} />
+            {messages && <Notification user={messages[messages.length - 1].name} />}
         </div >
     );
 };

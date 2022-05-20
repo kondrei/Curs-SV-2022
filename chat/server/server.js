@@ -16,18 +16,18 @@ server.listen(port, () => {
 let allMessages = [];
 
 io.on('connection', (socket) => {
+    let localTime = new Date(socket.handshake.time)
+    console.log(`user connected: ${localTime.getHours()}:${localTime.getMinutes()} ${localTime.getSeconds()}`);
 
     const sendMessageToUsers = (messages) => {
-        let localTime = new Date(socket.handshake.time)
-        console.log(`user connected: ${localTime.getHours()}:${localTime.getMinutes()} ${localTime.getSeconds()}`);
+        let test = 'haha';
         socket.emit("sendAll", messages);
-        socket.broadcast.emit("sendAll", messages);
+        socket.broadcast.emit("sendAll", messages, test);
     };
 
 
     socket.on("message", message => {
         allMessages.push(message);
-        console.log(allMessages);
         sendMessageToUsers(allMessages);
     });
 })

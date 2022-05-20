@@ -7,24 +7,16 @@ const ChatBox = ({ chats }) => {
         document.getElementById("scroll").scrollIntoView(false);
     }, [chats]);
 
-
-
-    const boldName = (message) => {
-        let name = message.indexOf(':');
-        return (
-            <>
-                <strong>{message.substring(0, name)}</strong>{message.substring(name, message.length)}
-            </>
-        )
-    }
-
     return (
         <div className="chatBox">
             <div className="messageList">
                 <div id="scroll">
                     <ul>
                         {chats && chats.map((element, index) => (
-                            <li key={index}>{boldName(element)}</li>
+                            <li key={index}>
+                                <strong>{element.name}:</strong>{' '}
+                                {element.message}
+                            </li>
                         ))
                         }
                     </ul>
