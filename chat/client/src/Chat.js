@@ -16,17 +16,19 @@ const Chat = () => {
             setConnectedSoket(soket);
             soket.on("sendAll", (messages) => {
                 setMessages(messages);
-            })
+            });
         });
 
     }, []);
     return (
-        <div className="mainChat" >
-            <h1>Let's chat!</h1>
-            {messages && <ChatBox chats={messages} />}
-            <MessageForm soket={connectedSoket} />
+        <>
+            <div className="mainChat" >
+                <h1>Let's chat!</h1>
+                {messages && <ChatBox chats={messages} />}
+                <MessageForm soket={connectedSoket} />
+            </div >
             {messages && <Notification user={messages[messages.length - 1].name} />}
-        </div >
+        </>
     );
 };
 

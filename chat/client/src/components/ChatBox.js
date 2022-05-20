@@ -13,7 +13,8 @@ const ChatBox = ({ chats }) => {
                 <div id="scroll">
                     <ul>
                         {chats && chats.map((element, index) => (
-                            <li key={index}>
+                            <li key={index} style={{ backgroundColor: element.color }}>
+                                <span>{element.time}</span>{' '}
                                 <strong>{element.name}:</strong>{' '}
                                 {element.message}
                             </li>
