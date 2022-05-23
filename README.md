@@ -7,7 +7,7 @@
 `npm start`
 
 ## Source code: [https://github.com/kondrei/La-moara-la-SV-2022/tree/main/app](https://github.com/kondrei/La-moara-la-SV-2022/tree/main/chat)
-
+## Live preview: [https://kondrei-la-moara-la-sv-2022-4xgrg9w27q7w-3001.githubpreview.dev/](https://kondrei-la-moara-la-sv-2022-4xgrg9w27q7w-3001.githubpreview.dev/) - a github account is required
 ## Screenshots:
 
 ![image](https://user-images.githubusercontent.com/4557193/169548737-3a93ff65-5d99-4d29-9350-ccf8d664f480.png)
