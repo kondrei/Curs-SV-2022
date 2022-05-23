@@ -23,13 +23,14 @@ const MessageForm = ({ soket }) => {
     }
 
     const sendMessage = () => {
-        soket.emit("message", {
-            name: name,
-            message: message,
-            color: userColor,
-            time: getTime()
-        }
-        );
+        message &&
+            soket.emit("message", {
+                name: name,
+                message: message,
+                color: userColor,
+                time: getTime()
+            }
+            );
         updateMessage("");
     };
 
