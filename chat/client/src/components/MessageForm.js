@@ -12,14 +12,22 @@ const MessageForm = ({ soket }) => {
             (85 + 10 * Math.random()) + '%)');
     }, [name]);
 
-    const sendMessage = () => {
+    const getTime = () => {
+        const addZero = (num) => {
+            return num < 10 ? "0" + num : num;
+        };
+
         let today = new Date();
-        let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        return addZero(today.getHours()) + ":" + addZero(today.getMinutes()) + ":" + addZero(today.getSeconds());
+
+    }
+
+    const sendMessage = () => {
         soket.emit("message", {
             name: name,
             message: message,
             color: userColor,
-            time: time
+            time: getTime()
         }
         );
         updateMessage("");
