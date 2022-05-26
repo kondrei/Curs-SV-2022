@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Bars from './Bars';
 import './Chart.css';
+import Label from './Label';
 
-function Chart() {
+const Chart = () => {
   const [answer, setAnswer] = useState('');
   const [answers, setAnswers] = useState('');
   const [chartElements, setChartElements] = useState([]);
@@ -9,30 +11,40 @@ function Chart() {
 
   const addAnswers = () => {
     //store answers
-    const result = {};
     setAnswers(oldValue => [...oldValue, answer]);
+  };
+
+  useEffect(() => {
+    const result = {};
 
     //count answers
-    answers.forEach(element => {
+    answers.length && answers.forEach(element => {
       result[element] = (result[element] || 0) + 1;
     });
 
     // replace them with percent
     for (let [key, value] of Object.entries(result)) {
-      result[key] = Math.floor(value / answers.length * 100);
+      result[key] = (value / answers.length * 100).toFixed(2);
 
     }
 
     setAnswer('');
     setChartElements(result);
-  };
-  
+  }, [answers]);
 
-  const list = Object.entries(chartElements).map(([key, value]) => {
+
+  const label = Object.entries(chartElements).map(([key, value]) => {
     return (
-      <div key={key}>{key} : {value.toString()}</div>
+      <Label name={key} value={value} />
     );
   });
+
+  const bars = Object.entries(chartElements).map(([key, value]) => {
+    return (
+      <Bars name={key} value={value} />
+    );
+  });
+
 
 
   return (
@@ -40,8 +52,12 @@ function Chart() {
       <h1>Chart react</h1>
       <h2>Why the sky is blue?</h2>
       <div className="chart">
-        {list}
-
+        {answers && <div className="bars">
+          {bars}
+        </div>}
+        {answers && <div className="label">
+          {label}
+        </div>}
       </div>
       <input
         type="text"
@@ -58,45 +74,3 @@ function Chart() {
 }
 
 export default Chart;
-
-
-
-
-// let input = document.getElementById('answer');
-// let button = document.getElementById('button');
-// let div = document.getElementsByClassName('chart')[0];
-
-// const answers = [];
-
-
-// const calculateAnswers = () => {
-//     const result = {};
-//     //count answers
-//     answers.forEach(element => {
-//         result[element] = (result[element] || 0) + 1;
-//     });
-
-//     // replace them with percent
-//     for (let [key, value] of Object.entries(result)) {
-//         result[key] = Math.floor(value / answers.length * 100);
-
-//     }
-//     return result;
-// }
-
-
-// button.addEventListener('click', () => {
-//     answers.push(input.value.toLowerCase());
-//     for (let [key, value] of Object.entries(calculateAnswers())) {
-//         const newDiv = document.createElement("div");
-
-//         const newContent = document.createTextNode(value);
-
-//         newDiv.appendChild(newContent);
-
-//         const currentDiv = document.getElementById("div1");
-//         div.insertBefore(newDiv, currentDiv);
-
-//     }
-
-// })
