@@ -17,16 +17,15 @@ const Chart = () => {
     soket.on('connect', () => {
       setConnectedSoket(soket);
       console.log('conectat', connectedSoket);
-      soket.on("sendAll", (messages) => {
-        // setMessages(messages);
-      });
     });
-  }, [connectedSoket]);
+  }, []);
 
   const addAnswers = () => {
     //store answers
     setAnswers(oldValue => [...oldValue, answer]);
-    setThanks(true);
+
+    connectedSoket.emit("sendAnswer", answer);
+    // setThanks(true);
   };
 
   useEffect(() => {
@@ -60,7 +59,12 @@ const Chart = () => {
     );
   });
 
-
+  const handleEnter = (e) => {
+    if (e.target.value && e.charCode === 13) {
+      setAnswers(oldValue => [...oldValue, e.target.value]);
+      setThanks(true);
+    };
+  }
 
   return (
     <div className="chart-app">
@@ -80,6 +84,7 @@ const Chart = () => {
           id="answer"
           placeholder="Enter an answer"
           value={answer}
+          onKeyPress={handleEnter}
           onChange={(e) => setAnswer(e.target.value)} />
         <button
           id="button"

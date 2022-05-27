@@ -17,16 +17,19 @@ let allMessages = [];
 
 io.on('connection', (socket) => {
     console.log(`new user connected`);
-
-    const sendMessageToUsers = (messages) => {
-        let test = 'haha';
-        socket.emit("sendAll", messages);
-        socket.broadcast.emit("sendAll", messages, test);
-    };
-
-
-    socket.on("message", message => {
-        allMessages.push(message);
-        sendMessageToUsers(allMessages);
+    socket.on("sendAnswer", (answers) => {
+        console.log('message recieved', answers); // world
     });
+    // const sendMessageToUsers = (messages) => {
+    //     let test = 'haha';
+    //     socket.emit("sendAll", messages);
+    //     socket.broadcast.emit("sendAll", messages, test);
+    // };
+
+
+    // socket.on("message", message => {
+    //     console.log('message recieved');
+    //     allMessages.push(message);
+    //     sendMessageToUsers(allMessages);
+    // });
 })
