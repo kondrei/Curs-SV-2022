@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { io } from "socket.io-client";
 import Bars from './Bars';
 import './Chart.css';
 import Label from './Label';
@@ -7,11 +8,25 @@ const Chart = () => {
   const [answer, setAnswer] = useState('');
   const [answers, setAnswers] = useState('');
   const [chartElements, setChartElements] = useState([]);
+  const [connectedSoket, setConnectedSoket] = useState();
+  const [thanks, setThanks] = useState(false);
 
+  useEffect(() => {
+    const soket = io();
+
+    soket.on('connect', () => {
+      setConnectedSoket(soket);
+      console.log('conectat', connectedSoket);
+      soket.on("sendAll", (messages) => {
+        // setMessages(messages);
+      });
+    });
+  }, [connectedSoket]);
 
   const addAnswers = () => {
     //store answers
     setAnswers(oldValue => [...oldValue, answer]);
+    setThanks(true);
   };
 
   useEffect(() => {
@@ -35,13 +50,13 @@ const Chart = () => {
 
   const label = Object.entries(chartElements).map(([key, value]) => {
     return (
-      <Label name={key} value={value} />
+      <Label key={key} name={key} value={value} />
     );
   });
 
   const bars = Object.entries(chartElements).map(([key, value]) => {
     return (
-      <Bars name={key} value={value} />
+      <Bars key={key} value={value} />
     );
   });
 
@@ -59,16 +74,19 @@ const Chart = () => {
           {label}
         </div>}
       </div>
-      <input
-        type="text"
-        id="answer"
-        placeholder="Enter an answer"
-        value={answer}
-        onChange={(e) => setAnswer(e.target.value)} />
-      <button
-        id="button"
-        onClick={addAnswers}
-        disabled={!answer ? "disabled" : ""}>Sent</button>
+      {!thanks && <div className="form">
+        <input
+          type="text"
+          id="answer"
+          placeholder="Enter an answer"
+          value={answer}
+          onChange={(e) => setAnswer(e.target.value)} />
+        <button
+          id="button"
+          onClick={addAnswers}
+          disabled={!answer ? "disabled" : ""}>Sent</button>
+      </div>}
+      {thanks && <div className="thanks">Thanks for the reply! 😀</div>}
     </div>
   );
 }
