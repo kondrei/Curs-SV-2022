@@ -1,3 +1,17 @@
+# Tema 5 - Trivia
+## Install & run
+`cd chart/server`
+`npm start`
+
+`cd chart/client`
+`npm start`
+
+## Source code: [https://github.com/kondrei/La-moara-la-SV-2022/tree/main/chart](https://github.com/kondrei/La-moara-la-SV-2022/tree/main/chart)
+## Screenshots:
+![image](https://user-images.githubusercontent.com/4557193/170999047-02cb8057-00e2-4be7-9d8a-962d2b64fa4d.png)
+![image](https://user-images.githubusercontent.com/4557193/170998676-a743e8ad-823b-46ca-a307-f79734b83c03.png)
+
+
 # Tema 4 - Chat
 ## Install & run
 `cd chat/server`
