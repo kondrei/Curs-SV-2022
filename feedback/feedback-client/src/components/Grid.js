@@ -1,7 +1,13 @@
+import Note from "./Note";
+
 const Grid = () => {
     return (
         <div className="grid">
-            grid
+            <Note />
+            <Note />
+            <Note />
+            <Note />
+            <Note />
         </div>
     )
 }

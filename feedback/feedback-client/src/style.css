@@ -1,0 +1,15 @@
+body {
+    background-color: bisque;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1em;
+}
+
+.note {
+    width: 200px;
+    height: 200px;
+    border: 1px solid red;
+}
