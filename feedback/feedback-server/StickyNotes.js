@@ -1,6 +1,6 @@
 class StickyNotes {
-    constructor() {
-        this.size = 3;
+    constructor(size) {
+        this.size = size;
         this.grid = [];
         this.createGrid(this.size);
     }
@@ -20,12 +20,6 @@ class StickyNotes {
         return `#${Math.floor(Math.random() * 16777215).toString(16)}`
     }
 
-    listGrid() {
-        for (let i = 0; i < this.size; i++) {
-            console.log(i, this.grid[i]);
-        }
-    }
-
     updateNote(x, y, feedback) {
         for (let i = 0; i < this.size; i++) {
             for (let j = 0; j < this.size; j++) {
@@ -36,10 +30,12 @@ class StickyNotes {
             }
         }
     }
+
+    get notes() {
+
+
+        return this.grid;
+    }
 }
 
-let grid = new StickyNotes();
-grid.updateNote(0, 2, 'ceva frumos');
-grid.updateNote(0, 0, 'primul din lista');
-grid.updateNote(2, 2, 'ultim');
-grid.listGrid();
+export default StickyNotes;

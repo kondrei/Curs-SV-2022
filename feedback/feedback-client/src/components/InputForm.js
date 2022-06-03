@@ -1,12 +1,13 @@
 import { useState } from "react";
 
-const InputForm = () => {
+const InputForm = ({ soket }) => {
     const [feedback, setFeedback] = useState('');
 
     const handleForm = (e) => {
         e.preventDefault();
         if (feedback) {
-            console.log(feedback)
+            soket.emit("sendFeedback", feedback);
+            console.log('message form', feedback);
         }
 
     };
