@@ -1,25 +1,36 @@
 import { useState } from "react";
 
-const InputForm = ({ soket }) => {
+const InputForm = ({ soket, currentFeedback }) => {
     const [feedback, setFeedback] = useState('');
+    const [thanks, setThanks] = useState(false);
 
     const handleForm = (e) => {
         e.preventDefault();
         if (feedback) {
-            soket.emit("sendFeedback", feedback);
-            console.log('message form', feedback);
-        }
+            let sendFeedback = {
+                id: currentFeedback,
+                feedback: feedback
+            };
+            soket.emit("sendFeedback", sendFeedback);
+            setThanks(true);
+        };
 
+    };
+    if (thanks) {
+        return (
+            <p>Thanks for the feedback!</p>)
     };
 
     return (
         <form className="form" onSubmit={handleForm}>
             <input type="text"
+                autoFocus
+                id="feedbackInput"
                 name="feedback"
-                placeholder="insert feedback here"
+                placeholder="Insert feedback here"
                 onChange={e => setFeedback(e.target.value)}
             />
-            <input type="submit" value="Submit feedback" />
+            <input type="submit" value="Submit feedback" disabled={!currentFeedback ? 'disabled' : ''} />
         </form>
     );
 };

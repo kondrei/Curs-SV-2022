@@ -1,15 +1,69 @@
 body {
-    background-color: bisque;
+    font-family: 'Montserrat', sans-serif;
+    background: radial-gradient(circle, #eeaeca 0%, #94bbe9 100%);
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    text-align: center;
 }
-
+h1 {
+    font-size: 3rem;
+    margin: 0px;
+    margin-bottom: .5rem;
+}
+.container{
+    margin: 2rem;
+}
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: 1em;
+    gap: 20px;
+}
+
+.form {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+}
+p {
+    min-height: 50px;
+    font-size: 20px;
+    margin: 0px;
+    margin-bottom: 2rem;
+}
+.form input, input[type=submit] {
+    font-size: 1rem;
+    height: 50px;
+    width: 200px;
+    box-sizing: border-box;
+    margin-right: 10px;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+input[type=submit] {
+    cursor: pointer;
+
 }
 
 .note {
-    width: 200px;
-    height: 200px;
-    border: 1px solid red;
+    text-shadow: 0 0 3px #888888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    background-color: #fff;
+    margin: 2px;
+    border-radius: 5px;
+    padding: 10px;
+    transition: transform .15s linear;
+    cursor: pointer;
+}
+
+
+.selected {
+    filter: drop-shadow(0px 0px 15px #f05a5a);
+    transform: scale(1.04);
 }

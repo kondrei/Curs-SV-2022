@@ -19,11 +19,15 @@ io.on('connection', (socket) => {
     console.log('New user conected');
     socket.emit("sendGridIds", allNotes.notes);
 
-
-
-    socket.on("sendFeedback", feedback => {
-        allNotes.updateNote(1, 1, feedback);
+    const sendMessageToUsers = (allNotes) => {
         socket.emit("sendGridIds", allNotes.notes);
-        console.log(allNotes.notes)
+        socket.broadcast.emit("sendGridIds", allNotes.notes);
+        console.log(allNotes.notes);
+    };
+
+    socket.on("sendFeedback", ({ id, feedback }) => {
+        allNotes.updateNote(parseInt(id.substring(0, 1)), parseInt(id.substring(2, 1)), feedback);
+        socket.emit("sendGridIds", allNotes.notes);
+        sendMessageToUsers(allNotes);
     });
-})
+});
