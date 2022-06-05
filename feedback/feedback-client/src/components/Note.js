@@ -4,6 +4,7 @@ const Note = ({ feedback, id, color, ...onClick }) => {
             id={id}
             style={{ backgroundColor: color }}
             {...onClick}>
+            <span>Id: {id}</span>
             {feedback ? feedback : "No feedback, click to add one!"}
         </div>
     )
