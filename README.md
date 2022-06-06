@@ -1,3 +1,20 @@
+# Tema 6 - Feedback
+## Install & run
+`cd feedback/feedback-server`
+`npm start`
+
+
+`cd feedback/feedback-client`
+`npm start`
+
+## Source code: [https://github.com/kondrei/La-moara-la-SV-2022/tree/main/feedback](https://github.com/kondrei/La-moara-la-SV-2022/tree/main/feedback)
+## Screenshots:
+![image](https://user-images.githubusercontent.com/4557193/172116070-e641134c-1df8-4430-9377-4ea8bf9fb7b6.png)
+![image](https://user-images.githubusercontent.com/4557193/172116804-5569e2f3-759f-48d2-969c-9804ecdda0a1.png)
+![image](https://user-images.githubusercontent.com/4557193/172116687-1396951b-1eb3-4018-b9ed-f34923ca0052.png)
+
+
+
 # Tema 5 - Trivia
 ## Install & run
 `cd chart/server`
