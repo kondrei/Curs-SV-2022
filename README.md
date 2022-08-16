@@ -1,3 +1,6 @@
+# JS Webinar - Cognizant Softvision
+### Project created during the Cognizant Softvision Webinar
+
 # Tema 6 - Feedback
 ## Install & run
 `cd feedback/feedback-server`
